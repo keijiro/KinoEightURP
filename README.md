@@ -3,8 +3,10 @@
 ![gif](https://i.imgur.com/KJ4pgJ3.gif)
 ![gif](https://i.imgur.com/gSs1Lc4.gif)
 
-**KinoEight** is an 8-bit-style post-processing effect originally developed for
+**[KinoEight]** is an 8-bit-style post-processing effect originally developed for
 HDRP. **KinoEight URP** is a simple port of this effect for URP.
+
+[KinoEight]: https://github.com/keijiro/KinoEight
 
 ## System Requirements
 
@@ -22,9 +24,11 @@ install the package:
      - Name: `Keijiro`
      - URL: `https://registry.npmjs.com`
      - Scope: `jp.keijiro`
-       ![Scoped Registry](https://user-images.githubusercontent.com/343936/162576797-ae39ee00-cb40-4312-aacd-3247077e7fa1.png)
+   
+   ![Scoped Registry](https://user-images.githubusercontent.com/343936/162576797-ae39ee00-cb40-4312-aacd-3247077e7fa1.png)
 3. Open the **Package Manager** window, switch to the **My Registries** tab,
    and install the package.
+
    ![My Registries](https://user-images.githubusercontent.com/343936/162576825-4a9a443d-62f9-48d3-8a82-a3e80b486f04.png)
 
 For more information, refer to the [scoped registry] documentation.
