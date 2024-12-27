@@ -1,0 +1,12 @@
+{
+    "author": "Keijiro Takahashi",
+    "dependencies": { },
+    "description": "8-bit style post processing effect for URP",
+    "displayName": "KinoEight URP",
+    "keywords": [ "unity" ],
+    "license": "Unlicense",
+    "name": "jp.keijiro.kino.post-processing.eight.universal",
+    "unity": "6000.0",
+    "unityRelease": "0f1",
+    "version": "1.0.0"
+}
