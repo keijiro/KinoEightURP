@@ -4,7 +4,7 @@ using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.Rendering.RenderGraphModule.Util;
 using UnityEngine.Rendering.Universal;
 
-namespace Kino.PostProcessing.Eight {
+namespace Kino.PostProcessing.Eight.Universal {
 
 sealed class EightColorPass : ScriptableRenderPass
 {
@@ -51,4 +51,4 @@ public sealed class EightColorFeature : ScriptableRendererFeature
       => renderer.EnqueuePass(_pass);
 }
 
-} // namespace Kino.PostProcessing.Eight
+} // namespace Kino.PostProcessing.Eight.Universal

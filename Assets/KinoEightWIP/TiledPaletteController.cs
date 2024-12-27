@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.RenderGraphModule;
 
-namespace Kino.PostProcessing.Eight {
+namespace Kino.PostProcessing.Eight.Universal {
 
 [ExecuteInEditMode]
 public sealed partial class TiledPaletteController : MonoBehaviour
@@ -91,4 +91,4 @@ public sealed partial class TiledPaletteController : MonoBehaviour
     #endregion
 }
 
-} // namespace Kino.PostProcessing.Eight
+} // namespace Kino.PostProcessing.Eight.Universal

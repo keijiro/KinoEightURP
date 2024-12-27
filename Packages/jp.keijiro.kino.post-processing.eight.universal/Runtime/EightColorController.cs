@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Kino.PostProcessing.Eight {
+namespace Kino.PostProcessing.Eight.Universal {
 
 [ExecuteInEditMode]
 public sealed partial class EightColorController : MonoBehaviour
@@ -85,4 +85,4 @@ public sealed partial class EightColorController : MonoBehaviour
     #endregion
 }
 
-} // namespace Kino.PostProcessing.Eight
+} // namespace Kino.PostProcessing.Eight.Universal

@@ -4,7 +4,7 @@ using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.Rendering.RenderGraphModule.Util;
 using UnityEngine.Rendering.Universal;
 
-namespace Kino.PostProcessing.Eight {
+namespace Kino.PostProcessing.Eight.Universal {
 
 sealed class TiledPalettePass : ScriptableRenderPass
 {
@@ -56,4 +56,4 @@ public sealed class TiledPaletteFeature : ScriptableRendererFeature
       => renderer.EnqueuePass(_pass);
 }
 
-} // namespace Kino.PostProcessing.Eight
+} // namespace Kino.PostProcessing.Eight.Universal
