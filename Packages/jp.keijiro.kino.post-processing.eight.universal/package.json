@@ -1,6 +1,6 @@
 {
     "author": "Keijiro Takahashi",
-    "dependencies": { },
+    "dependencies": { "com.unity.render-pipelines.universal": "17.0.0" },
     "description": "8-bit style post processing effect for URP",
     "displayName": "KinoEight URP",
     "keywords": [ "unity" ],
