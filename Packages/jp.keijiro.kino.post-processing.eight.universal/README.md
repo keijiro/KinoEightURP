@@ -13,27 +13,15 @@ HDRP. **KinoEight URP** is a simple port of this effect for URP.
 - Unity 6 or later
 - URP 17 or later
 
-## How To Install
+## How to Install
 
-This package uses a [scoped registry] to resolve package dependencies. To
-install the package:
+You can install the KinoEight package
+(`jp.keijiro.kino.post-processing.eight.universal`) via the "Keijiro" scoped
+registry using the Unity Package Manager. To add the registry to your project,
+follow [these instructions].
 
-1. Open the **Project Settings** window and navigate to the **Package Manager**
-   section.
-2. Add the following entry to the **Scoped Registries** list:
-     - Name: `Keijiro`
-     - URL: `https://registry.npmjs.com`
-     - Scope: `jp.keijiro`
-   
-   ![Scoped Registry](https://user-images.githubusercontent.com/343936/162576797-ae39ee00-cb40-4312-aacd-3247077e7fa1.png)
-3. Open the **Package Manager** window, switch to the **My Registries** tab,
-   and install the package.
-
-   ![My Registries](https://user-images.githubusercontent.com/343936/162576825-4a9a443d-62f9-48d3-8a82-a3e80b486f04.png)
-
-For more information, refer to the [scoped registry] documentation.
-
-[scoped registry]: https://docs.unity3d.com/Manual/upm-scoped.html
+[these instructions]:
+  https://gist.github.com/keijiro/f8c7e8ff29bfe63d86b888901b82644c
 
 ## Eight Color effect
 
