@@ -1,6 +1,6 @@
 {
   "name": "jp.keijiro.kino.post-processing.eight.universal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "KinoEight URP",
   "description": "8-bit style post processing effect for URP",
   "unity": "6000.0",
@@ -10,5 +10,5 @@
   "documentationUrl": "https://github.com/keijiro/KinoEightURP",
   "licensesUrl": "https://github.com/keijiro/KinoEightURP/blob/master/LICENSE",
   "license": "Unlicense",
-  "_upm": { "changelog": "" }
+  "_upm": { "changelog": "<b>Added</b><br>- Added signing for Unity 6.3." }
 }
