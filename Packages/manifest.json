@@ -9,8 +9,9 @@
     }
   ],
   "dependencies": {
-    "com.unity.visualeffectgraph": "17.0.3",
-    "jp.keijiro.klak.motion": "1.1.0",
+    "com.unity.visualeffectgraph": "17.0.4",
+    "jp.keijiro.klak.motion": "1.1.1",
+    "jp.keijiro.klutter-tools": "2.4.4",
     "jp.keijiro.test-assets": "1.0.1"
   }
 }
