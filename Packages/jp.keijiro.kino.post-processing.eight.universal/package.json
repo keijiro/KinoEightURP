@@ -1,12 +1,14 @@
 {
-    "author": "Keijiro Takahashi",
-    "dependencies": { "com.unity.render-pipelines.universal": "17.0.0" },
-    "description": "8-bit style post processing effect for URP",
-    "displayName": "KinoEight URP",
-    "keywords": [ "unity" ],
-    "license": "Unlicense",
-    "name": "jp.keijiro.kino.post-processing.eight.universal",
-    "unity": "6000.0",
-    "unityRelease": "0f1",
-    "version": "1.0.0"
+  "name": "jp.keijiro.kino.post-processing.eight.universal",
+  "version": "1.0.0",
+  "displayName": "KinoEight URP",
+  "description": "8-bit style post processing effect for URP",
+  "unity": "6000.0",
+  "author": "Keijiro Takahashi",
+  "dependencies": { "com.unity.render-pipelines.universal": "17.0.0" },
+  "changelogUrl": "https://github.com/keijiro/KinoEightURP/blob/master/CHANGELOG.md",
+  "documentationUrl": "https://github.com/keijiro/KinoEightURP",
+  "licensesUrl": "https://github.com/keijiro/KinoEightURP/blob/master/LICENSE",
+  "license": "Unlicense",
+  "_upm": { "changelog": "" }
 }
