@@ -450,8 +450,7 @@ MonoBehaviour:
   Dithering: 0.5
   Downsampling: 4
   Opacity: 1
-  _shader: {fileID: -6465566751694194690, guid: 11e94cd5c3fe34771a02e77528668f69,
-    type: 3}
+  _shader: {fileID: 4800000, guid: 11e94cd5c3fe34771a02e77528668f69, type: 3}
 --- !u!114 &1485070794
 MonoBehaviour:
   m_ObjectHideFlags: 0
