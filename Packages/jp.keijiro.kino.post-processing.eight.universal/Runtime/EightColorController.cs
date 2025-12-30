@@ -76,7 +76,7 @@ public sealed partial class EightColorController : MonoBehaviour
         _material.SetMatrix(IDs.Palette1, palette1.transpose);
         _material.SetMatrix(IDs.Palette2, palette2.transpose);
         _material.SetFloat(IDs.Dithering, Dithering);
-        _material.SetFloat(IDs.Downsampling, Downsampling);
+        _material.SetInteger(IDs.Downsampling, Downsampling);
         _material.SetFloat(IDs.Opacity, Opacity);
 
         return _material;
