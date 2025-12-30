@@ -9,8 +9,7 @@ HLSLINCLUDE
 half _Dithering;
 uint _Downsampling;
 half _Opacity;
-float4x4 _Palette1;
-float4x4 _Palette2;
+float4 _Palette[8];
 
 SAMPLER(sampler_BlitTexture);
 
@@ -36,14 +35,14 @@ half4 Fragment(Varyings input) : SV_Target
     col += dither * _Dithering;
 
     // Alias for each color
-    half3 c1 = _Palette1[0].rgb;
-    half3 c2 = _Palette1[1].rgb;
-    half3 c3 = _Palette1[2].rgb;
-    half3 c4 = _Palette1[3].rgb;
-    half3 c5 = _Palette2[0].rgb;
-    half3 c6 = _Palette2[1].rgb;
-    half3 c7 = _Palette2[2].rgb;
-    half3 c8 = _Palette2[3].rgb;
+    half3 c1 = _Palette[0].rgb;
+    half3 c2 = _Palette[1].rgb;
+    half3 c3 = _Palette[2].rgb;
+    half3 c4 = _Palette[3].rgb;
+    half3 c5 = _Palette[4].rgb;
+    half3 c6 = _Palette[5].rgb;
+    half3 c7 = _Palette[6].rgb;
+    half3 c8 = _Palette[7].rgb;
 
     // Euclidean distance
     half d1 = distance(c1, col);

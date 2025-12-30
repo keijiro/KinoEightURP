@@ -43,11 +43,11 @@ public sealed partial class EightColorController : MonoBehaviour
         internal static readonly int Dithering = Shader.PropertyToID("_Dithering");
         internal static readonly int Downsampling = Shader.PropertyToID("_Downsampling");
         internal static readonly int Opacity = Shader.PropertyToID("_Opacity");
-        internal static readonly int Palette1 = Shader.PropertyToID("_Palette1");
-        internal static readonly int Palette2 = Shader.PropertyToID("_Palette2");
+        internal static readonly int Palette = Shader.PropertyToID("_Palette");
     }
 
     Material _material;
+    readonly Color[] _palette = new Color[8];
 
     #endregion
 
@@ -70,11 +70,16 @@ public sealed partial class EightColorController : MonoBehaviour
         if (_material == null)
             _material = CoreUtils.CreateEngineMaterial(_shader);
 
-        var palette1 = new Matrix4x4(Color1, Color2, Color3, Color4);
-        var palette2 = new Matrix4x4(Color5, Color6, Color7, Color8);
+        _palette[0] = Color1;
+        _palette[1] = Color2;
+        _palette[2] = Color3;
+        _palette[3] = Color4;
+        _palette[4] = Color5;
+        _palette[5] = Color6;
+        _palette[6] = Color7;
+        _palette[7] = Color8;
 
-        _material.SetMatrix(IDs.Palette1, palette1.transpose);
-        _material.SetMatrix(IDs.Palette2, palette2.transpose);
+        _material.SetColorArray(IDs.Palette, _palette);
         _material.SetFloat(IDs.Dithering, Dithering);
         _material.SetInteger(IDs.Downsampling, Downsampling);
         _material.SetFloat(IDs.Opacity, Opacity);
