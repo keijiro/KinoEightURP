@@ -10,8 +10,8 @@ HDRP. **KinoEight URP** is a simple port of this effect for URP.
 
 ## System Requirements
 
-- Unity 6 or later
-- URP 17 or later
+- Unity 6.0 or later
+- Universal Render Pipeline
 
 ## How to Install
 
@@ -23,24 +23,24 @@ follow [these instructions].
 [these instructions]:
   https://gist.github.com/keijiro/f8c7e8ff29bfe63d86b888901b82644c
 
-## Eight Color effect
+## Eight Color Effect
 
-![eight color](https://i.imgur.com/gqqSnl6.png)
+<img width="760" height="502" alt="Inspector" src="https://github.com/user-attachments/assets/0f14a50c-cfcf-457f-ad1e-065497edf5a2" />
 
 The **Eight Color** effect reduces the color palette of an image to eight
 colors. It includes additional options:
 
-- Dithering: Soften banding artifacts with a low-resolution dithering pattern.
-- Downsampling: Pixelate the image by lowering its resolution.
+- **Extended**: Expands the color palette to 16 colors.
+- **Dithering**: Soften banding artifacts with a low-resolution dithering
+  pattern.
+- **Downsampling**: Pixelate the image by lowering its resolution.
 
 ### How to Use
 
 1. Add the **Eight Color Feature** to the **Renderer Features** list in your
    URP Renderer asset.
-2. Add the **Eight Color Controller** component to the camera you want to apply
-   the effect to.
-   - The effect will only be applied to cameras that have the Eight Color
-     Controller component.
+2. Add the **Eight Color Controller** component to any camera you want to apply
+   the effect to. The effect is applied only to cameras with this component.
 
 ## Current Limitations
 
