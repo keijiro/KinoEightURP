@@ -18,15 +18,27 @@ public sealed partial class EightColorController : MonoBehaviour
     [field:SerializeField, ColorUsage(false)] public Color Color7 { get; set; } = new Color(0, 1, 1, 0);
     [field:SerializeField, ColorUsage(false)] public Color Color8 { get; set; } = new Color(1, 1, 1, 0);
 
-    [field:SerializeField, Range(0, 1)] public float Dithering = 0.05f;
-    [field:SerializeField, Range(1, 32)] public int Downsampling = 1;
-    [field:SerializeField, Range(0, 1)] public float Opacity = 1;
+    [field:SerializeField, ColorUsage(false)] public Color Color9  { get; set; } = new Color(0.3f, 0.3f, 0.3f);
+    [field:SerializeField, ColorUsage(false)] public Color Color10 { get; set; } = new Color(0.5f, 0.0f, 0.0f);
+    [field:SerializeField, ColorUsage(false)] public Color Color11 { get; set; } = new Color(0.0f, 0.5f, 0.0f);
+    [field:SerializeField, ColorUsage(false)] public Color Color12 { get; set; } = new Color(0.5f, 0.5f, 0.0f);
+
+    [field:SerializeField, ColorUsage(false)] public Color Color13 { get; set; } = new Color(0.0f, 0.0f, 0.5f);
+    [field:SerializeField, ColorUsage(false)] public Color Color14 { get; set; } = new Color(0.5f, 0.0f, 0.5f);
+    [field:SerializeField, ColorUsage(false)] public Color Color15 { get; set; } = new Color(0.0f, 0.5f, 0.5f);
+    [field:SerializeField, ColorUsage(false)] public Color Color16 { get; set; } = new Color(0.6f, 0.6f, 0.6f);
+
+    [field:SerializeField] public bool Extended { get; set; }
+    [field:SerializeField, Range(0, 1)] public float Dithering { get; set; } = 0.05f;
+    [field:SerializeField, Range(1, 32)] public int Downsampling { get; set; } = 1;
+    [field:SerializeField, Range(0, 1)] public float Opacity { get; set; } = 1;
 
     #endregion
 
     #region Runtime public property
 
     public Material Material => UpdateMaterial();
+    public int PassIndex => Extended ? 1 : 0;
 
     #endregion
 
@@ -47,7 +59,7 @@ public sealed partial class EightColorController : MonoBehaviour
     }
 
     Material _material;
-    readonly Color[] _palette = new Color[8];
+    readonly Color[] _palette = new Color[16];
 
     #endregion
 
@@ -78,6 +90,14 @@ public sealed partial class EightColorController : MonoBehaviour
         _palette[5] = Color6;
         _palette[6] = Color7;
         _palette[7] = Color8;
+        _palette[8] = Color9;
+        _palette[9] = Color10;
+        _palette[10] = Color11;
+        _palette[11] = Color12;
+        _palette[12] = Color13;
+        _palette[13] = Color14;
+        _palette[14] = Color15;
+        _palette[15] = Color16;
 
         _material.SetColorArray(IDs.Palette, _palette);
         _material.SetFloat(IDs.Dithering, Dithering);

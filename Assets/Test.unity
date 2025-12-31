@@ -447,9 +447,18 @@ MonoBehaviour:
   <Color6>k__BackingField: {r: 1, g: 0.854902, b: 0.27058825, a: 0}
   <Color7>k__BackingField: {r: 0.20000002, g: 0.40784317, b: 0.86274517, a: 0}
   <Color8>k__BackingField: {r: 0.28627452, g: 0.9058824, b: 0.92549026, a: 0}
-  Dithering: 0.5
-  Downsampling: 4
-  Opacity: 1
+  <Color9>k__BackingField: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+  <Color10>k__BackingField: {r: 0.5, g: 0, b: 0, a: 1}
+  <Color11>k__BackingField: {r: 0, g: 0.5, b: 0, a: 1}
+  <Color12>k__BackingField: {r: 0.5, g: 0.5, b: 0, a: 1}
+  <Color13>k__BackingField: {r: 0, g: 0, b: 0.5, a: 1}
+  <Color14>k__BackingField: {r: 0.5, g: 0, b: 0.5, a: 1}
+  <Color15>k__BackingField: {r: 0, g: 0.5, b: 0.5, a: 1}
+  <Color16>k__BackingField: {r: 0.6, g: 0.6, b: 0.6, a: 1}
+  <Extended>k__BackingField: 0
+  <Dithering>k__BackingField: 0.5
+  <Downsampling>k__BackingField: 4
+  <Opacity>k__BackingField: 1
   _shader: {fileID: 4800000, guid: 11e94cd5c3fe34771a02e77528668f69, type: 3}
 --- !u!114 &1485070794
 MonoBehaviour:

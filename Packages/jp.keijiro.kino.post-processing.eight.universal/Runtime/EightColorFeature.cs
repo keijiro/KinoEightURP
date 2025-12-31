@@ -30,7 +30,7 @@ sealed class EightColorPass : ScriptableRenderPass
 
         // Blit
         var param = new RenderGraphUtils.
-          BlitMaterialParameters(source, dest, ctrl.Material, 0);
+          BlitMaterialParameters(source, dest, ctrl.Material, ctrl.PassIndex);
         graph.AddBlitPass(param, passName: "EightColor");
 
         // Destination texture as the camera texture

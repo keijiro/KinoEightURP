@@ -2,21 +2,34 @@
     <ui:VisualElement class="unity-base-field unity-base-text-field">
         <ui:Label text="Palette" class="unity-base-field__label unity-base-text-field__label" />
         <ui:VisualElement class="unity-base-field__input">
-            <ui:VisualElement name="VisualElement" style="flex-direction: row;">
+            <ui:VisualElement name="palette-row-1" style="flex-direction: row;">
                 <uie:ColorField binding-path="&lt;Color1&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
                 <uie:ColorField binding-path="&lt;Color2&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
                 <uie:ColorField binding-path="&lt;Color3&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
                 <uie:ColorField binding-path="&lt;Color4&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
             </ui:VisualElement>
-            <ui:VisualElement name="VisualElement" style="flex-direction: row;">
+            <ui:VisualElement name="palette-row-2" style="flex-direction: row;">
                 <uie:ColorField binding-path="&lt;Color5&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
                 <uie:ColorField binding-path="&lt;Color6&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
                 <uie:ColorField binding-path="&lt;Color7&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
                 <uie:ColorField binding-path="&lt;Color8&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
             </ui:VisualElement>
+            <ui:VisualElement name="palette-row-3" style="flex-direction: row;">
+                <uie:ColorField binding-path="&lt;Color9&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
+                <uie:ColorField binding-path="&lt;Color10&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
+                <uie:ColorField binding-path="&lt;Color11&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
+                <uie:ColorField binding-path="&lt;Color12&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
+            </ui:VisualElement>
+            <ui:VisualElement name="palette-row-4" style="flex-direction: row;">
+                <uie:ColorField binding-path="&lt;Color13&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
+                <uie:ColorField binding-path="&lt;Color14&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
+                <uie:ColorField binding-path="&lt;Color15&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
+                <uie:ColorField binding-path="&lt;Color16&gt;k__BackingField" show-alpha="false" show-eye-dropper="false" class="unity-base-field__input unity-color-field__input" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <uie:PropertyField binding-path="Dithering" />
-    <uie:PropertyField binding-path="Downsampling" />
-    <uie:PropertyField binding-path="Opacity" />
+    <uie:PropertyField binding-path="&lt;Extended&gt;k__BackingField" />
+    <uie:PropertyField binding-path="&lt;Dithering&gt;k__BackingField" />
+    <uie:PropertyField binding-path="&lt;Downsampling&gt;k__BackingField" />
+    <uie:PropertyField binding-path="&lt;Opacity&gt;k__BackingField" />
 </ui:UXML>
