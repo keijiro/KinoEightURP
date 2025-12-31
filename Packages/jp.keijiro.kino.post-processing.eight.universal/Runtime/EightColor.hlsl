@@ -10,7 +10,7 @@ float4 _Palette[PALETTE_ENTRIES];
 SAMPLER(sampler_BlitTexture);
 
 // 2x2 Bayer matrix for dithering
-static const half bayer2x2[] = {-0.5, 0.16666666, 0.5, -0.16666666};
+static const half bayer2x2[] = {-0.5, 0, 0.25, -0.25};
 
 half4 Fragment(Varyings input) : SV_Target
 {
