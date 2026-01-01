@@ -1,6 +1,6 @@
 {
   "name": "jp.keijiro.kino.post-processing.eight.universal",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "displayName": "KinoEight URP",
   "description": "8-bit style post processing effect for URP",
   "unity": "6000.0",
@@ -11,6 +11,6 @@
   "licensesUrl": "https://github.com/keijiro/KinoEightURP/blob/master/LICENSE",
   "license": "Unlicense",
   "_upm": {
-    "changelog": "<b>Added</b><br>- Added a custom inspector UI for EightColorController.<br>- Added extended mode with 16-color palette support.<br><br><b>Changed</b><br>- Migrated the EightColor shader from Shader Graph to HLSL and refactored it.<br>- Updated palette uploads to use SetColorArray.<br>- Refined shader property types and precision.<br>- Updated the README."
+    "changelog": "<b>Changed</b><br>- Switched color distance calculations to OKLab space for improved reduction accuracy.<br>- Optimized OKLab conversion with a Burst-compiled path.<br><br><b>Fixed</b><br>- Fixed bias in dithering.<br>- Fixed sampling point bias by offsetting half a pixel."
   }
 }
