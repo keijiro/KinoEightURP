@@ -456,7 +456,7 @@ MonoBehaviour:
   <Color15>k__BackingField: {r: 0, g: 0.5, b: 0.5, a: 1}
   <Color16>k__BackingField: {r: 0.6, g: 0.6, b: 0.6, a: 1}
   <Extended>k__BackingField: 0
-  <Dithering>k__BackingField: 0.5
+  <Dithering>k__BackingField: 0.25
   <Downsampling>k__BackingField: 4
   <Opacity>k__BackingField: 1
   _shader: {fileID: 4800000, guid: 11e94cd5c3fe34771a02e77528668f69, type: 3}
@@ -644,8 +644,8 @@ VisualEffect:
   m_Asset: {fileID: 8926484042661614526, guid: 0906d577b1bee2d54b302a2eb7915c37, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
-  m_StartSeed: 0
-  m_ResetSeedOnPlay: 1
+  m_StartSeed: 1702456723
+  m_ResetSeedOnPlay: 0
   m_AllowInstancing: 1
   m_ResourceVersion: 1
   m_PropertySheet:
