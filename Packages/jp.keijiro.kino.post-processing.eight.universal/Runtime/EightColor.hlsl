@@ -37,7 +37,7 @@ half4 Fragment(Varyings input) : SV_Target
 
     // Downsampling (quantization)
     uint2 pss = input.texcoord * _BlitTexture_TexelSize.zw / _Downsampling;
-    float2 uv = pss * _Downsampling * _BlitTexture_TexelSize.xy;
+    float2 uv = (pss + 0.5) * _Downsampling * _BlitTexture_TexelSize.xy;
 
     // Dithering (2x2 bayer)
     half dither = bayer2x2[(pss.y & 1) * 2 + (pss.x & 1)] * _Dithering;
