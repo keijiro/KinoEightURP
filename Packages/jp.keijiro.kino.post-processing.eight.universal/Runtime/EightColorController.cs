@@ -55,11 +55,29 @@ public sealed partial class EightColorController : MonoBehaviour
         internal static readonly int Dithering = Shader.PropertyToID("_Dithering");
         internal static readonly int Downsampling = Shader.PropertyToID("_Downsampling");
         internal static readonly int Opacity = Shader.PropertyToID("_Opacity");
-        internal static readonly int Palette = Shader.PropertyToID("_Palette");
+        internal static readonly int PaletteRgb = Shader.PropertyToID("_PaletteRGB");
+        internal static readonly int PaletteLab = Shader.PropertyToID("_PaletteLab");
     }
 
     Material _material;
-    readonly Color[] _palette = new Color[16];
+    (Color[] rgb, Vector4[] lab) _palette = (new Color[16], new Vector4[16]);
+
+    static Vector3 LinearToOKLab(Vector4 c)
+    {
+        var lms = new Vector3
+          (0.4122214708f * c.x + 0.5363325363f * c.y + 0.0514459929f * c.z,
+           0.2119034982f * c.x + 0.6806995451f * c.y + 0.1073969566f * c.z,
+           0.0883024619f * c.x + 0.2817188376f * c.y + 0.6299787005f * c.z);
+
+        lms = new Vector3(Mathf.Pow(lms.x, 1f / 3),
+                          Mathf.Pow(lms.y, 1f / 3),
+                          Mathf.Pow(lms.z, 1f / 3));
+
+        return new Vector3
+          (0.2104542553f * lms.x + 0.7936177850f * lms.y - 0.0040720468f * lms.z,
+           1.9779984951f * lms.x - 2.4285922050f * lms.y + 0.4505937099f * lms.z,
+           0.0259040371f * lms.x + 0.7827717662f * lms.y - 0.8086757660f * lms.z);
+    }
 
     #endregion
 
@@ -82,24 +100,28 @@ public sealed partial class EightColorController : MonoBehaviour
         if (_material == null)
             _material = CoreUtils.CreateEngineMaterial(_shader);
 
-        _palette[0] = Color1;
-        _palette[1] = Color2;
-        _palette[2] = Color3;
-        _palette[3] = Color4;
-        _palette[4] = Color5;
-        _palette[5] = Color6;
-        _palette[6] = Color7;
-        _palette[7] = Color8;
-        _palette[8] = Color9;
-        _palette[9] = Color10;
-        _palette[10] = Color11;
-        _palette[11] = Color12;
-        _palette[12] = Color13;
-        _palette[13] = Color14;
-        _palette[14] = Color15;
-        _palette[15] = Color16;
+        _palette.rgb[0] = Color1;
+        _palette.rgb[1] = Color2;
+        _palette.rgb[2] = Color3;
+        _palette.rgb[3] = Color4;
+        _palette.rgb[4] = Color5;
+        _palette.rgb[5] = Color6;
+        _palette.rgb[6] = Color7;
+        _palette.rgb[7] = Color8;
+        _palette.rgb[8] = Color9;
+        _palette.rgb[9] = Color10;
+        _palette.rgb[10] = Color11;
+        _palette.rgb[11] = Color12;
+        _palette.rgb[12] = Color13;
+        _palette.rgb[13] = Color14;
+        _palette.rgb[14] = Color15;
+        _palette.rgb[15] = Color16;
 
-        _material.SetColorArray(IDs.Palette, _palette);
+        for (var i = 0; i < _palette.lab.Length; i++)
+            _palette.lab[i] = LinearToOKLab(_palette.rgb[i].linear);
+
+        _material.SetColorArray(IDs.PaletteRgb, _palette.rgb);
+        _material.SetVectorArray(IDs.PaletteLab, _palette.lab);
         _material.SetFloat(IDs.Dithering, Dithering);
         _material.SetInteger(IDs.Downsampling, Downsampling);
         _material.SetFloat(IDs.Opacity, Opacity);
