@@ -1,9 +1,11 @@
+using Unity.Burst;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 namespace Kino.PostProcessing.Eight.Universal {
 
-[ExecuteInEditMode]
+[BurstCompile, ExecuteInEditMode]
 public sealed partial class EightColorController : MonoBehaviour
 {
     #region Editable properties
@@ -62,21 +64,27 @@ public sealed partial class EightColorController : MonoBehaviour
     Material _material;
     (Color[] rgb, Vector4[] lab) _palette = (new Color[16], new Vector4[16]);
 
-    static Vector3 LinearToOKLab(Vector4 c)
+    #endregion
+
+    #region OKLab Color Space Conversion
+
+    static float3 ToOKLab(Color c)
     {
-        var lms = new Vector3
-          (0.4122214708f * c.x + 0.5363325363f * c.y + 0.0514459929f * c.z,
-           0.2119034982f * c.x + 0.6806995451f * c.y + 0.1073969566f * c.z,
-           0.0883024619f * c.x + 0.2817188376f * c.y + 0.6299787005f * c.z);
+        var rgb = ((float4)(Vector4)c.linear).xyz;
+        LinearToOKLab_burst(in rgb, out var lab);
+        return lab;
+    }
 
-        lms = new Vector3(Mathf.Pow(lms.x, 1f / 3),
-                          Mathf.Pow(lms.y, 1f / 3),
-                          Mathf.Pow(lms.z, 1f / 3));
-
-        return new Vector3
-          (0.2104542553f * lms.x + 0.7936177850f * lms.y - 0.0040720468f * lms.z,
-           1.9779984951f * lms.x - 2.4285922050f * lms.y + 0.4505937099f * lms.z,
-           0.0259040371f * lms.x + 0.7827717662f * lms.y - 0.8086757660f * lms.z);
+    [BurstCompile]
+    static void LinearToOKLab_burst(in float3 rgb, out float3 lab)
+    {
+        var rgb2lms = new float3x3(0.4122214708f,  0.5363325363f,  0.0514459929f,
+                                   0.2119034982f,  0.6806995451f,  0.1073969566f,
+                                   0.0883024619f,  0.2817188376f,  0.6299787005f);
+        var lms2lab = new float3x3(0.2104542553f,  0.7936177850f, -0.0040720468f,
+                                   1.9779984951f, -2.4285922050f,  0.4505937099f,
+                                   0.0259040371f,  0.7827717662f, -0.8086757660f);
+        lab = math.mul(lms2lab, math.pow(math.mul(rgb2lms, rgb), 1f / 3));
     }
 
     #endregion
@@ -118,7 +126,7 @@ public sealed partial class EightColorController : MonoBehaviour
         _palette.rgb[15] = Color16;
 
         for (var i = 0; i < _palette.lab.Length; i++)
-            _palette.lab[i] = LinearToOKLab(_palette.rgb[i].linear);
+            _palette.lab[i] = math.float4(ToOKLab(_palette.rgb[i]), 0);
 
         _material.SetColorArray(IDs.PaletteRgb, _palette.rgb);
         _material.SetVectorArray(IDs.PaletteLab, _palette.lab);

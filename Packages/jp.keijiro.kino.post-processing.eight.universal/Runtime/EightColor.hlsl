@@ -19,7 +19,7 @@ half ec_sqdist(half3 a, half3 b)
     return dot(a - b, a - b);
 }
 
-// Linear RGB to OKLab
+// Linear sRGB to OKLab
 half3 ec_LinearToOKLab(half3 c)
 {
     half3x3 rgb2lms = half3x3(0.4122214708,  0.5363325363,  0.0514459929,
@@ -42,14 +42,14 @@ half4 Fragment(Varyings input) : SV_Target
     // Dithering (2x2 bayer)
     half dither = bayer2x2[(pss.y & 1) * 2 + (pss.x & 1)] * _Dithering;
 
-    // Source color sampling in Linear / sRGB / OKLab
+    // Source color sampling in Linear sRGB / Gamma sRGB / OKLab
     half4 src = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, uv);
     half3 src_linear = saturate(src.rgb + dither);
-    half3 src_srgb = LinearToSRGB(src_linear);
+    half3 src_gamma = LinearToSRGB(src_linear);
     half3 src_lab = ec_LinearToOKLab(src_linear);
 
     // Best fit search
-    half3 best_srgb = _PaletteRGB[0].rgb;
+    half3 best_gamma = _PaletteRGB[0].rgb;
     half best_dist = ec_sqdist(src_lab, _PaletteLab[0].rgb);
 
     [unroll]
@@ -58,12 +58,12 @@ half4 Fragment(Varyings input) : SV_Target
         half dist = ec_sqdist(src_lab, _PaletteLab[i].rgb);
         if (dist < best_dist)
         {
-            best_srgb = _PaletteRGB[i].rgb;
+            best_gamma = _PaletteRGB[i].rgb;
             best_dist = dist;
         }
     }
 
     // Blending
     half4 orig = SAMPLE_TEXTURE2D_X(_BlitTexture, sampler_BlitTexture, input.texcoord);
-    return lerp(orig, half4(SRGBToLinear(best_srgb), src.a), _Opacity);
+    return lerp(orig, half4(SRGBToLinear(best_gamma), src.a), _Opacity);
 }
